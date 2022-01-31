@@ -11,7 +11,7 @@ Dismantling Pulse Engine Upgrade modules.
 Cadmium can be refined using a Refiner with the following ingredients:
 
 SUBSTANCE.RED.2.png Cadmium x1  +  SUBSTANCE.STELLAR.2.png Chromatic Metal x1  →  SUBSTANCE.RED.2.png Cadmium x2  ("Chromatic Expansion", 0.36 sec./unit output)
-Use
+Useaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Crafting ████~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~
 Cadmium is used as an ingredient for crafting the following products:■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
