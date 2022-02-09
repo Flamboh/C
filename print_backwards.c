@@ -10,6 +10,10 @@ int main(void)
 
     while (( len = findline(line, MAXLINE)) > 0)
     {
+        for (int j = len - 2; j >= 0; --j) {
+            putchar(line[j]);
+        }
+
         printf("\n");
     }
     return 0;
@@ -35,10 +39,6 @@ int findline(char s[], int lim)
         ++i;
     }
     s[bound_i + 1] = '\0';
-
-    for (int j = bound_i - 1; j >= 0; --j) {
-        putchar(s[j]);
-    }
 
     return i;
 }
