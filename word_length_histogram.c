@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define IN 1 
+#define IN 1
 #define OUT 0
 
 int main(void)
@@ -12,7 +12,6 @@ int main(void)
     nc = 0;
     for (int i = 0; i < 12; ++i)
         wordlength[i] = 0;
-    
     while ((c = getchar()) != EOF) {
         if (c == ' ' || c == '\n' || c == '\t') {
             state = OUT;
