@@ -6,12 +6,12 @@
 #define LOW_CARD 2
 #define HIGH_CARD 14
 
-int currentCash;
+int current_cash;
 
 
 void initializeGame()
 {
-    currentCash = START_CASH;
+    current_cash = START_CASH;
 }
 
 void printIntro()
@@ -54,16 +54,28 @@ int* getCardName(int card_value)
 }
 
 int getBetAmount()
-{
-
+{   
+    int x;
+    printf("What is your bet? ");
+    scanf("%d", &x);
+    return x;
 }
 
-void handleBet(int bet_amount)
+int handleBet(int bet_amount)
 {
-    // too poor
-    // chickened out
-    // valid bet
-    // not a number
+    if (bet_amount > current_cash) {
+        printf("Sorry, my friend but you bet too much\n");
+        printf("You only have %i dollars to bet\n", current_cash);
+        return 0;
+    }
+    if (bet_amount == 0) {
+        printf("CHICKEN!!\n\n");
+        
+    }
+    if (bet_amount < 0) {
+        current_cash -= bet_amount;
+        return 1;
+    }
 }
 
 void handleWin(int bet_amount)
@@ -86,8 +98,8 @@ int main(void)
     srand(time(0));
     initializeGame();
     printIntro();
-    while (currentCash > 0) {
-        printf("You now have %i dollars\n\n", currentCash);
+    while (current_cash > 0) {
+        printf("You now have %i dollars\n\n", current_cash);
         printf("Here are your next two cards\n");
 
         int cards[3];
@@ -102,9 +114,14 @@ int main(void)
             cards[0] = cards[0] - cards[1];
         }
 
-        printf("card: %i\n", cards[0]);
-        printf("card: %i\n", cards[1]);
-        printf("card: %i\n", cards[2]);
+        printf(" %i\n", cards[0]);
+        printf(" %i\n", cards[1]);
+ 
+        int bet_amount;
+
+        do {
+            bet_amount = getBetAmount();
+        } while (!handleBet(bet_amount));
 
         break;
     }
