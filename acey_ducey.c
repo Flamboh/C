@@ -38,59 +38,35 @@ void pickRandomCards(int* cards)
     } while (cards[2] == cards[0] || cards[2] == cards[1]);
 }
 
-void printDollarAmount()
+void printCardName(int card_value)
 {
-
-}
-
-void printChosenCards()
-{
-
-}
-
-int* getCardName(int card_value)
-{
-
+    if (card_value < 11)
+        printf(" %i\n", card_value);
+    else {
+        switch(card_value) {
+            case 11 :
+                printf("Jack\n");
+                break;
+            case 12 :
+                printf("Queen\n");
+                break;
+            case 13 :
+                printf("King\n");
+                break;
+            case 14 :
+                printf("Ace\n");
+                break;
+        }
+    }
 }
 
 int getBetAmount()
-{   
+{
     int x;
     printf("What is your bet? ");
+    fseek(stdin,0,SEEK_END);
     scanf("%d", &x);
     return x;
-}
-
-int handleBet(int bet_amount)
-{
-    if (bet_amount > current_cash) {
-        printf("Sorry, my friend but you bet too much\n");
-        printf("You only have %i dollars to bet\n", current_cash);
-        return 0;
-    }
-    if (bet_amount == 0) {
-        printf("CHICKEN!!\n\n");
-        
-    }
-    if (bet_amount < 0) {
-        current_cash -= bet_amount;
-        return 1;
-    }
-}
-
-void handleWin(int bet_amount)
-{
-
-}
-
-void handleLose(int bet_amount)
-{
-
-}
-
-void restartGame()
-{
-
 }
 
 int main(void)
@@ -114,15 +90,39 @@ int main(void)
             cards[0] = cards[0] - cards[1];
         }
 
-        printf(" %i\n", cards[0]);
-        printf(" %i\n", cards[1]);
- 
+        printCardName(cards[0]);
+        printCardName(cards[1]);
+
         int bet_amount;
 
-        do {
+        while (1) {
             bet_amount = getBetAmount();
-        } while (!handleBet(bet_amount));
+            if (bet_amount > current_cash) {
+                printf("Sorry, my friend but you bet too much\n");
+                printf("You only have %i dollars to bet\n", current_cash);
+                continue;
+            }
+            else if (bet_amount < 0) {
+                printf("Bet must be more than zero\n");
+                continue;
+            }
+            else if (bet_amount == 0) {
+                printf("CHICKEN!!\n");
+            }
+            current_cash -= bet_amount;
+            break;
+        }
 
-        break;
+        if (bet_amount > 0) {
+            printCardName(cards[2]);
+            if (cards[2] < cards[0] || cards[2] > cards[1]) {
+                printf("Sorry, you lose\n");
+            }
+            else {
+                printf("You win!!!\n");
+                current_cash += (bet_amount * 2);
+            }
+
+        }
     }
 }
