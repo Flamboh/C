@@ -45,15 +45,6 @@ int main() {
   add_days_to_date(&mm, &dd, &yy, days_left_to_add);
 
   printf("%i %i %i\n", mm, dd, yy);
-/*
-  int year = 0;
 
-  printf("Choose a year between 1800 and 10000\n>");
-  scanf("%i", &year);
-  if(is_leap_year(year))
-    printf("Leap Year\n");
-  else
-    printf("Not Leap Year\n");
-*/
 }
 
