@@ -1,8 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
-#include <ctype.h>
+#include <stdlib.h> // Standard Library. Includes things like random number generation
+#include <time.h> // Anything to do with dates or time.
+#include <string.h> // For manipulating strings
+#include <ctype.h> // for reading the types of variables or changing them
+
+// this is a comment, you can tell by the green color and the two slashes at the start
 
 struct Player {
     char* name;
