@@ -29,12 +29,6 @@ int findline(char s[], int lim)
     }
     if (bound_i > lim)
         bound_i = lim;
-    // if (c == '\n')
-    // {
-    //     ++bound_i;
-    //     s[bound_i] = c;
-    //     ++i;
-    // }
     s[bound_i + 1] = '\0';
 
     return i;
@@ -46,7 +40,6 @@ int htoi(char hexcode[])
     int number = 0;
     for (i = 0; hexcode[i] != '\0'; ++i)
         ;
-    // printf("i%d\n", i);
     for (int j = 0; j < i; ++j) {
         int intvalue = 0;
         switch(hexcode[j])
@@ -119,7 +112,6 @@ int htoi(char hexcode[])
                 break;
         }
         int column = i - j - 1;
-        // printf("c%d\nint%d\n", column, intvalue);
         number += (pow(16, column)) * intvalue ;
     }
     return number;
