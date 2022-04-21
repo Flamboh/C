@@ -1,24 +1,24 @@
 #include <stdio.h>
 
-int convertf(int fahr) // takes in temp in fahrenheit and returns it in celsius
+// takes in temp in fahrenheit and returns it in celsius
+int convertf(int fahr)
 {
     int celsius;
-
-    celsius = 5 * (fahr-32) / 9; // equation for changing fahrenheit to celsius
+    // equation for changing fahrenheit to celsius
+    celsius = 5 * (fahr-32) / 9;
 
     return celsius;
 }
 
-
-int convertc(int celsius) // takes in temp in celsius and returns it in fahrenheit
+// takes in temp in celsius and returns it in fahrenheit
+int convertc(int celsius)
 {
     int fahr;
-
-    fahr = (celsius * 9/5) + 32; // equation for changing celsius to fahrenheit
+    // equation for changing celsius to fahrenheit
+    fahr = (celsius * 9/5) + 32;
 
     return fahr;
 }
-
 
 int main(void)
 {
@@ -28,16 +28,23 @@ int main(void)
     // variables for input
 
     printf("Choose input temperature unit (c or f): ");
-    scanf("%c", &choice); // getting user choice
-    if (choice == 'c') { // chose celsius
+    // getting user choice
+    scanf("%c", &choice);
+    // if chose celsius
+    if (choice == 'c') {
         printf("Temp in celsius: ");
-        scanf("%d", &tempc); // gets temp from user in celsius
-        printf("Temperature converted to fahrenheit: %d\n", convertc(tempc)); // converts to fahrenheit and prints the output
+        // gets temp from user in celsius
+        scanf("%d", &tempc);
+        // converts to fahrenheit and prints the output
+        printf("Temperature converted to fahrenheit: %d\n", convertc(tempc));
     }
-    else if (choice == 'f') { // chose fahrenheit
+    // if chose fahrenheit
+    else if (choice == 'f') {
         printf("Temp in fahrenheit: ");
-        scanf("%d", &tempf); // gets temp from user in fahrenheit
-        printf("Temperature converted to celsius: %d\n", convertf(tempf)); // converts to celsius and prints the output
+        // gets temp from user in fahrenheit
+        scanf("%d", &tempf);
+        // converts to celsius and prints the output
+        printf("Temperature converted to celsius: %d\n", convertf(tempf));
 
     }
 }
